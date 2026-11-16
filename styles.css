@@ -1,0 +1,152 @@
+/*
+ * styles.css – Gestaltung
+ * Schlicht und sachlich, gut lesbar auf Laptop und Beamer.
+ * Die Farben der Ebenen steigen mit der Tragweite: grün (Team) bis rot (Leitung).
+ */
+
+:root {
+  --hintergrund: #f4f5f7;
+  --flaeche: #ffffff;
+  --text: #1d2430;
+  --text-leise: #5b6576;
+  --linie: #d9dde4;
+  --akzent: #1f5fa8;
+  --gruen: #2e7d4f;
+  --gelb: #b7861a;
+  --orange: #c2591d;
+  --rot: #b3261e;
+  --grau: #6b7280;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--text);
+  background: var(--hintergrund);
+}
+
+.kopf { background: var(--flaeche); border-bottom: 1px solid var(--linie); }
+.kopf-inhalt, .inhalt, .fuss { max-width: 900px; margin: 0 auto; padding: 0 16px; }
+.kopf-inhalt { display: flex; justify-content: space-between; align-items: center; min-height: 56px; gap: 12px; flex-wrap: wrap; }
+.marke { font-weight: 600; color: var(--text); text-decoration: none; }
+.inhalt { padding-top: 24px; padding-bottom: 32px; }
+.fuss { color: var(--text-leise); font-size: 14px; padding-bottom: 24px; }
+
+h1 { font-size: 26px; line-height: 1.3; margin: 0 0 16px; }
+h2 { font-size: 19px; margin: 24px 0 8px; }
+h2:first-child { margin-top: 0; }
+
+.karte {
+  background: var(--flaeche);
+  border: 1px solid var(--linie);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+button { font: inherit; cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: 0.4; }
+.primaer {
+  background: var(--akzent); color: #fff; border: 0; border-radius: 6px; padding: 10px 20px; font-weight: 600;
+}
+.link { background: none; border: 0; color: var(--akzent); padding: 8px 4px; }
+.link:hover { text-decoration: underline; }
+
+.hinweis { color: var(--text-leise); font-size: 15px; }
+.leise { color: var(--text-leise); }
+.warnung { color: var(--rot); font-weight: 600; }
+.erfolg { color: var(--gruen); font-weight: 600; }
+
+/* Startseite */
+.ebenenliste { list-style: none; padding: 0; margin: 16px 0; }
+.ebenenliste li { margin: 6px 0; }
+.marker { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
+.marker.gruen { background: var(--gruen); }
+.marker.gelb { background: var(--gelb); }
+.marker.orange { background: var(--orange); }
+.marker.rot { background: var(--rot); }
+
+/* Fortschritt */
+.fortschritt { display: flex; gap: 4px; list-style: none; padding: 0; margin: 0 0 16px; flex-wrap: wrap; }
+.fortschritt li {
+  flex: 1 1 120px; font-size: 14px; padding: 6px 8px; border-radius: 6px;
+  background: var(--flaeche); border: 1px solid var(--linie); color: var(--text-leise);
+}
+.fortschritt li.erledigt { color: var(--text); border-color: var(--text-leise); }
+.fortschritt li.aktuell { color: #fff; background: var(--akzent); border-color: var(--akzent); font-weight: 600; }
+
+/* Frage */
+.kriterium { text-transform: uppercase; letter-spacing: 0.04em; font-size: 13px; color: var(--text-leise); margin: 0 0 4px; font-weight: 600; }
+.indikatoren { border: 1px solid var(--linie); border-radius: 6px; padding: 12px 16px; margin: 0 0 16px; }
+.indikatoren legend { padding: 0 4px; color: var(--text-leise); font-size: 15px; }
+.indikator { display: flex; gap: 10px; align-items: flex-start; padding: 6px 0; cursor: pointer; }
+.indikator input { margin-top: 5px; width: 18px; height: 18px; flex: none; }
+.beispiel { background: var(--hintergrund); border-radius: 6px; padding: 10px 14px; font-size: 15px; }
+
+.antworten { display: flex; gap: 12px; margin: 20px 0 8px; flex-wrap: wrap; }
+.antwort {
+  flex: 1 1 120px; padding: 12px; border-radius: 6px; font-weight: 600;
+  background: var(--flaeche); border: 2px solid var(--linie); color: var(--text);
+}
+.antwort.ja:hover, .antwort.ja.vorgeschlagen { border-color: var(--akzent); }
+.antwort.ja.vorgeschlagen { background: var(--akzent); color: #fff; }
+.antwort.nein:hover:not(:disabled) { border-color: var(--text-leise); }
+.antwort.unklar:hover { border-color: var(--grau); }
+
+.navigation { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+
+/* Ergebnis */
+.ergebnis { border-left: 8px solid var(--grau); }
+.ergebnis.gruen { border-left-color: var(--gruen); }
+.ergebnis.gelb { border-left-color: var(--gelb); }
+.ergebnis.orange { border-left-color: var(--orange); }
+.ergebnis.rot { border-left-color: var(--rot); }
+.ergebnis h1 { margin-bottom: 4px; }
+.entscheider { font-size: 18px; margin: 0; }
+
+.raster { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+@media (max-width: 640px) { .raster { grid-template-columns: 1fr; } }
+
+.tabelle-rahmen { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th, td { text-align: left; vertical-align: top; padding: 8px; border-bottom: 1px solid var(--linie); }
+th { color: var(--text-leise); font-weight: 600; }
+td ul { margin: 0; padding-left: 18px; }
+.antwortzelle { font-weight: 600; white-space: nowrap; }
+.antwortzelle.ja { color: var(--akzent); }
+.antwortzelle.unklar { color: var(--grau); }
+
+/* Einstellungen */
+.feld { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--linie); flex-wrap: wrap; }
+.eingabe { white-space: nowrap; }
+.feld input { width: 140px; padding: 6px 8px; font: inherit; border: 1px solid var(--linie); border-radius: 4px; }
+
+/* Diagramm (Phase 2) */
+.gruppe { display: inline-flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.werkzeuge { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.schalter { display: inline-flex; gap: 8px; align-items: center; font-size: 15px; cursor: pointer; }
+.diagramm { overflow-x: auto; border: 1px solid var(--linie); border-radius: 6px; padding: 16px; background: #fff; }
+.diagramm svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+
+/* Klärungsfragen */
+.klaerungsfrage { border: 1px solid var(--linie); border-radius: 6px; padding: 12px 16px; margin: 12px 0; }
+.klaerungstext { margin: 0 0 4px; font-weight: 600; }
+.nachsehen { margin: 0 0 10px; font-size: 14px; color: var(--text-leise); }
+.knoepfe { display: flex; gap: 8px; flex-wrap: wrap; }
+.klein { padding: 6px 14px; border-radius: 6px; border: 2px solid var(--linie); background: var(--flaeche); color: var(--text); font-weight: 600; }
+.klein:hover { border-color: var(--text-leise); }
+.klein.gewaehlt { background: var(--akzent); border-color: var(--akzent); color: #fff; }
+.vorschau { background: var(--hintergrund); border-left: 4px solid var(--akzent); padding: 10px 14px; border-radius: 4px; }
+.primaer:disabled { opacity: 0.4; }
+
+/* Klärung nach Indikatoren gegliedert */
+.klaerungsgruppe { border-left: 4px solid var(--linie); padding: 4px 0 4px 14px; margin: 18px 0; }
+.gruppenkopf { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.gruppentitel { margin: 0; font-weight: 600; }
+.status { flex: none; font-size: 13px; padding: 2px 10px; border-radius: 12px; background: var(--hintergrund); color: var(--text-leise); }
+.status.trifftzu { background: #dce8f6; color: var(--akzent); font-weight: 600; }
+.status.trifftnichtzu { background: #e3f1e8; color: var(--gruen); }

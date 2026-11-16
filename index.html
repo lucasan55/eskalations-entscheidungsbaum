@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+  index.html – Oberfläche des Eskalations-Entscheidungsbaums
+  Artefakt zur Projektarbeit „EAM-Governance-Framework für agile Organisationen:
+  EARB im Scrum-Umfeld“. Start per Doppelklick, kein Server nötig.
+-->
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eskalations-Entscheidungsbaum</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="kopf">
+    <div class="kopf-inhalt">
+      <a href="#" class="marke" data-aktion="start">Eskalations-Entscheidungsbaum</a>
+      <nav>
+        <button type="button" class="link" data-aktion="start">Start</button>
+        <button type="button" class="link" data-aktion="diagramm">Diagramm</button>
+        <button type="button" class="link" data-aktion="einstellungen">Einstellungen</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Der Inhalt wird von app.js je nach Ansicht neu aufgebaut. -->
+  <main id="inhalt" class="inhalt" aria-live="polite"></main>
+
+  <footer class="fuss">
+    Artefakt zur Projektarbeit „EAM-Governance-Framework für agile Organisationen: EARB im Scrum-Umfeld“
+  </footer>
+
+  <script src="vendor/mermaid.min.js"></script>
+  <script src="js/modell.js"></script>
+  <script src="js/logik.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
